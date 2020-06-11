@@ -3,6 +3,14 @@ let juego = {
     posibilidades: ['#opcion1', '#opcion2', '#opcion3', '#opcion4', '#opcion5', '#opcion6'],
     juegoactual: [],
     jugador: [],
+    sonidos: {
+        opcion1: new Audio('sonidos/sonido1.mp3'),
+        opcion2: new Audio('sonidos/sonido2.mp3'),
+        opcion3: new Audio('sonidos/sonido3.mp3'),
+        opcion4: new Audio('sonidos/sonido4.mp3'),
+        opcion5: new Audio('sonidos/sonido5.mp3'),
+        opcion6: new Audio('sonidos/sonido6.mp3'),
+    }
 };
 
 bloquearInput();
@@ -47,6 +55,7 @@ function generarMovimiento() {
 function mostrarMovimiento($campo) {
     console.log($campo);
     const pointer = document.querySelector($campo);
+    sonidos($campo);
     pointer.style['backgroundColor'] = 'black';
     setTimeout(function() {
         pointer.style['backgroundColor'] = '';
@@ -104,4 +113,28 @@ function desbloquearInput() {
     document.querySelectorAll('.col-4').forEach(function($cuadro) {
         $cuadro.setAttribute('onclick', 'movimientoJugador(this.id)');
     });
+}
+
+function sonidos(x) {
+    switch (x) {
+        case '#opcion1':
+            juego.sonidos.opcion1.play().playbackRate = 8.0;
+            break;
+        case '#opcion2':
+            juego.sonidos.opcion2.play().playbackRate = 8.0;
+            break;
+        case '#opcion3':
+            juego.sonidos.opcion3.play().playbackRate = 8.0;
+            break;
+        case '#opcion4':
+            juego.sonidos.opcion4.play().playbackRate = 8.0;
+            break;
+        case '#opcion5':
+            juego.sonidos.opcion5.play().playbackRate = 8.0;
+            break;
+        case '#opcion6':
+            juego.sonidos.opcion6.play().playbackRate = 8.0;
+            break;
+
+    };
 }
