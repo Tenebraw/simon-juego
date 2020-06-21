@@ -138,3 +138,77 @@ function sonidos(x) {
 
     };
 }
+
+//Seccion canciones
+cancionesIndex = 0;
+canciones = ['musica/come-with-me.mp3', 'musica/nightfall.mp3', 'musica/on-the-run.mp3'];
+artistas = ['TimeCop1983 ~', 'TimeCop1983 ~', 'TimeCop1983 ~'];
+titulos = ['Come With Me', 'Nightfall', 'On The Run'];
+
+let music = document.querySelector('#music');
+music.volume = 0.1;
+let artista = document.querySelector('.artista');
+let titulo = document.querySelector('.titulo');
+
+let playbutton = document.querySelector('#play');
+playbutton.addEventListener("click", play);
+
+function play() {
+    if (music.paused) {
+        music.play();
+        playbutton.className = '';
+        playbutton.className = 'fas fa-pause';
+    } else {
+        music.pause();
+        playbutton.className = '';
+        playbutton.className = 'fas fa-play';
+    }
+}
+
+music.addEventListener('ended', function() {
+    proximaCancion();
+});
+
+
+let playforward = document.querySelector('#adelantar');
+playforward.addEventListener("click", proximaCancion);
+
+function proximaCancion() {
+    cancionesIndex++;
+
+    if (cancionesIndex > 2) {
+        cancionesIndex = 0;
+    }
+    music.src = canciones[cancionesIndex];
+    artista.innerHTML = artistas[cancionesIndex];
+    titulo.innerHTML = titulos[cancionesIndex];
+    play();
+}
+
+let playbackward = document.querySelector('#volver');
+playbackward.addEventListener("click", cancionAnterior);
+
+function cancionAnterior() {
+    cancionesIndex--;
+    if (cancionesIndex < 0) {
+        cancionesIndex = 2;
+    }
+    music.src = canciones[cancionesIndex];
+    artista.innerHTML = artistas[cancionesIndex];
+    titulo.innerHTML = titulos[cancionesIndex];
+    play();
+}
+
+let barraprogreso = document.querySelector('#progress-bar');
+
+setInterval(actualizarbarraProgreso, 500);
+
+function actualizarbarraProgreso() {
+    barraprogreso.max = music.duration;
+    barraprogreso.value = music.currentTime;
+
+}
+
+function changeProgressBar() {
+    music.currentTime = barraprogreso.value;
+};

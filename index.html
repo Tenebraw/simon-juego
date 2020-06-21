@@ -4,11 +4,17 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Simon Says</title>
+    <title>Simon Dice</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--Animate css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <!--Google fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/ff8d9f42b4.js" crossorigin="anonymous"></script>
+    <!--Custom-->
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
 </head>
 
@@ -16,43 +22,64 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8">
-                <div class="alert alert-danger" id="alert" role="alert">
+                <div class="alert" id="alert" role="alert">
                     <i>"Simon dice"</i> ~ Version propia 1.0
                 </div>
             </div>
             <div class="col-sm">
-                <div class="alert alert-danger" role="alert" id="ronda">
+                <div class="alert" role="alert" id="ronda">
                     Round n°
                 </div>
             </div>
-
         </div>
-
     </div>
 
     <div class="container" id="tablero">
         <div class="row justify-content-around">
-            <div class="col-4 col-sm-3" id="opcion1" onclick="movimientoJugador(this.id)"><img src='https://i.imgur.com/d4cwemU.jpg'>1</div>
-            <div class="col-4 col-sm-3" id="opcion2" onclick="movimientoJugador(this.id)"><img src='https://i.imgur.com/crTLDQU.jpg'>2</div>
+            <div class="col-4 col-sm-3" id="opcion1" onclick="movimientoJugador(this.id)"><img src='imagenes/imagen1.jpg'>1</div>
+            <div class="col-4 col-sm-3" id="opcion2" onclick="movimientoJugador(this.id)"><img src='imagenes/imagen2.jpg'>2</div>
         </div>
+
         <div class="row justify-content-between">
-            <div class="col-4 col-sm-3" id="opcion3" onclick="movimientoJugador(this.id)"><img src='https://i.imgur.com/o03SZwN.jpg'>3</div>
-
+            <div class="col-4 col-sm-3" id="opcion3" onclick="movimientoJugador(this.id)"><img src='imagenes/imagen3.jpg'>3</div>
             <button type="button" class="" id="empezar">Empezar!</button>
-
-            <div class="col-4 col-sm-3" id="opcion4" onclick="movimientoJugador(this.id)"><img src='https://i.imgur.com/YMfiAL4.jpg'>4</div>
+            <div class="col-4 col-sm-3" id="opcion4" onclick="movimientoJugador(this.id)"><img src='imagenes/imagen4.jpg'>4</div>
         </div>
-        <div class="row justify-content-around">
-            <div class="col-4 col-sm-3" id="opcion5" onclick="movimientoJugador(this.id)"><img src='https://i.imgur.com/kl7dUZ5.jpg'>5</div>
-            <div class="col-4 col-sm-3" id="opcion6" onclick="movimientoJugador(this.id)"><img src='https://i.imgur.com/l2ObSRK.jpg'>6</div>
 
+        <div class="row justify-content-around">
+            <div class="col-4 col-sm-3" id="opcion5" onclick="movimientoJugador(this.id)"><img src='imagenes/imagen5.jpg'>5</div>
+            <div class="col-4 col-sm-3" id="opcion6" onclick="movimientoJugador(this.id)"><img src='imagenes/imagen6.jpg'>6</div>
+        </div>
+
+        <div class="logo d-flex justify-content-center "><img id="logo" src="imagenes/logo.png"></div>
+
+        <div class="musicplay">
+            <div class="info d-flex">
+                <div class="artista p-2 d-inline">TimeCop1983 ~</div>
+                <div class="titulo ml-auto p-2 d-inline">Come with Me</div>
+            </div>
+
+            <div class="progreso">
+                <input type="range" id="progress-bar" min="0" max="" value="0" onchange="changeProgressBar()" />
+            </div>
+
+            <audio id="music" autoplay>
+            <source src="musica/come-with-me.mp3" id="source" type="audio/mpeg">
+        </audio>
+
+            <div class="controles d-flex">
+                <i class="fas fa-play px-2" id="play"></i>
+                <i class="fas fa-step-backward px-2" id="volver"></i>
+                <i class="fas fa-step-forward px-2" id="adelantar"></i>
+            </div>
         </div>
     </div>
 
-
+    <!--Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!--Custom-->
     <script src="simon.js"></script>
 </body>
 
