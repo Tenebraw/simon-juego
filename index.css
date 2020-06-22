@@ -216,9 +216,12 @@ input[type=range]::-moz-range-thumb {
 }
 
 
-/*Tengo que corregir los media-queries*/
+/*media-queries*/
 
 @media(max-width:480px) {
+    body {
+        background-size: cover;
+    }
     .musicplay {
         margin-top: -35px;
     }
