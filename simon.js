@@ -79,7 +79,7 @@ function movimientoJugador(id) {
 function comprobacion(x) {
     const estado = document.querySelector('#empezar');
     if (juego.jugador[juego.jugador.length - 1] !== juego.juegoactual[juego.jugador.length - 1]) {
-        estado.textContent = 'Mal - Empezar de nuevo?';
+        estado.textContent = 'Mal - Otra vez?';
         bloquearInput();
     }
 
