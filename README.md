@@ -4,3 +4,5 @@ Version personalizada del clasico juego "Simon dice" o "Simon says".
 
 Instalación: 
 - Ejecutar npm install.
+
+Gitpage: https://tenebraw.github.io/simon-juego/
