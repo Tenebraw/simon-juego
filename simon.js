@@ -146,7 +146,7 @@ artistas = ['TimeCop1983 ~', 'TimeCop1983 ~', 'TimeCop1983 ~'];
 titulos = ['Come With Me', 'Nightfall', 'On The Run'];
 
 let music = document.querySelector('#music');
-music.volume = 0.1;
+music.volume = 0.2;
 let artista = document.querySelector('.artista');
 let titulo = document.querySelector('.titulo');
 
